@@ -4,13 +4,13 @@ require('dotenv').config();
 async function initializeDatabase() {
   try {
     const connection = await mysql.createConnection({
-      host: process.env.DB_HOST || 'localhost',
-      port: process.env.DB_PORT || 3306,
-      user: process.env.DB_USER || 'root',
-      password: process.env.DB_PASSWORD || '',
+      host: process.env.DB_HOST || 'expensedb.c56kwqkvtgel.us-east-1.rds.amazonaws.com',
+      port: process.env.DB_PORT || 3307,
+      user: process.env.DB_USER || 'admin',
+      password: process.env.DB_PASSWORD || 'password',
     });
 
-    const dbName = process.env.DB_NAME || 'expense_tracker';
+    const dbName = process.env.DB_NAME || 'ExpenseDB';
 
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${dbName}\``);
     console.log(`Database '${dbName}' created or already exists.`);
